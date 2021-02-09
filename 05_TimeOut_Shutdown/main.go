@@ -11,9 +11,7 @@ import (
 	"github.com/abhijit113/RestApiByJackson/05_TimeOut_Shutdown/handlers"
 )
 
-
 func main() {
-
 
 	l := log.New(os.Stdout, "products-api ", log.LstdFlags)
 
@@ -28,8 +26,9 @@ func main() {
 
 	// create a new server
 	s := http.Server{
-		Addr:         ":9090",             // configure the bind address
-		Handler:      sm,                // set the default handler
+		Addr:         ":9090", // configure the bind address
+		Handler:      sm,      // set the default handler
+		ErrorLog:     l,
 		ReadTimeout:  5 * time.Second,   // max time to read request from the client
 		WriteTimeout: 10 * time.Second,  // max time to write response to the client
 		IdleTimeout:  120 * time.Second, // max time for connections using TCP Keep-Alive

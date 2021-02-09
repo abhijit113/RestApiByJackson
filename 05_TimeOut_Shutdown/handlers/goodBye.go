@@ -20,5 +20,5 @@ func NewGoodBye(l *log.Logger) *GoodBye {
 // https://golang.org/pkg/net/http/#Handler
 func (g *GoodBye) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	g.l.Println("Handle GoodBye requests")
-	fmt.Fprintf(w,"GoodBye")
+	fmt.Fprintf(w, "GoodBye")
 }
